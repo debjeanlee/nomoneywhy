@@ -6,12 +6,12 @@
 
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faSearchDollar } from '@fortawesome/free-solid-svg-icons'
 
 export default {
     components: { FontAwesomeIcon },
     setup(){
-        const myIcon = faSpinner
+        const myIcon = faSearchDollar
         return { myIcon }
     },
 }
