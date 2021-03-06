@@ -31,6 +31,16 @@ input {
   }
 }
 
+select {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  padding: 0.5em 1em;
+  border: 2px solid $cream;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 // error message on forms
 .error {
   font-size: 0.9em;

@@ -14,11 +14,9 @@ import getCategories from '../../../functions/getCategories'
         setup(){
             const selectedCategory = ref('Food');
             const { categories } = getCategories();
-            
+
             return { categories, selectedCategory }
         }
-
-
     }
 </script>
 
