@@ -19,6 +19,15 @@ p {
   justify-content: space-between;
 }
 
+.align-center {
+  align-items: center;
+}
+
+.container {
+  width: 80%;
+  margin: 1em auto;
+}
+
 // --- Forms
 input {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -31,13 +40,31 @@ input {
   }
 }
 
-select {
+// custom dropdown menu
+.dropdown {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  padding: 0.5em 1em;
+  padding: 0.7em 1em;
   border: 2px solid $cream;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.75em;
+  letter-spacing: 2px;
+  color: $gray;
 
   &:focus {
     outline: none;
+  }
+}
+
+.option {
+  @extend .dropdown;
+  background-color: $white;
+  list-style: none;
+  border-top: none;
+
+  &:hover {
+    background-color: $cream;
   }
 }
 

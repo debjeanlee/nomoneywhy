@@ -1,22 +1,14 @@
 <template>
-    <select v-model="selectedCategory">
-        <option v-for="category in categories" :key="category" :value="category">
-            {{ category }}
-        </option>
-    </select>
+    <div class="container">
+        <AddExpense />
+        List of expenses here
+    </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import getCategories from '../../../functions/getCategories'
-
+import AddExpense from './AddExpense'
     export default {
-        setup(){
-            const selectedCategory = ref('Food');
-            const { categories } = getCategories();
-
-            return { categories, selectedCategory }
-        }
+     components: { AddExpense }   
     }
 </script>
 
