@@ -1,0 +1,30 @@
+// --- Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+// --- Forms
+input {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  width: stretch;
+  border: 2px solid $cream;
+  padding: 0.5em 1em;
+  margin-top: 0.6em;
+  &:focus {
+    outline: none;
+  }
+}
+
+// error message on forms
+.error {
+  font-size: 0.9em;
+  margin-top: 0.4em;
+  color: red;
+}
