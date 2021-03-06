@@ -4,6 +4,7 @@
         <teleport to='#modals'>
             <Modal v-if="addItem" @close="closeModal" >
                 <slot>
+                    <!-- ADD THIS AFTER GETTING EXPENSE LOGIC <AddExpense @added="getExpenseList"/> -->
                     <AddExpense />
                 </slot>
             </Modal>
@@ -32,6 +33,8 @@ import Modal from '../../utilities/Modal'
         const closeModal = () => {
             return addItem.value = false;
          }
+
+        //  ------ getExpenseList import external function -----
 
          return { add, addItem, closeModal }
      }
