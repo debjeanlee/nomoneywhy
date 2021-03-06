@@ -1,13 +1,15 @@
 <template>
   <Header />
+  <Body />
 </template>
 
 <script>
 import Header from './components/header/Header'
+import Body from './components/body/Body'
 
 export default {
   name: 'App',
-  components: { Header }
+  components: { Header, Body }
 }
 </script>
 
