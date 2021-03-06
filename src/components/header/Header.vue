@@ -24,12 +24,10 @@ import YellowBox from '../utilities/YellowBox.vue';
             const error = ref('');
             const name = ref('Stranger');
             const message = ref(`Hello, ${name.value}! Let's find out why you don't have any money.`)
-            const className = ref('welcome new');
             const show = ref(false)
 
             const getWelcomeMsg = () => {
                 if (name.value !== 'Stranger') {
-                    className.value = 'welcome'
                     return message.value = `Welcome, ${name.value}!`
                 }
             }
@@ -52,8 +50,7 @@ import YellowBox from '../utilities/YellowBox.vue';
             watch(name, () => {
                 getWelcomeMsg();
             })
-            
-            return { message, className, name, show, user, handleSubmit, error }
+            return { message, show, user, handleSubmit, error }
         }
     }
 </script>
