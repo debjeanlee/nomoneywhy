@@ -1,8 +1,7 @@
 <template>
-    <div>
-        <h1>
-            {{ user }}'s expenses in {{curMonthStr}}: ${total}
-        </h1>       
+    <div class="overview center">
+        <h1>{{ user }}'s expenses in {{curMonthStr}}: </h1>       
+        <h1>$ {total}</h1>
     </div>
 </template>
 
@@ -24,5 +23,22 @@ import getDate from '../../../functions/getDate'
 </script>
 
 <style lang="scss">
+    .overview {
+        display: flex;
+        margin-top: 2em;
+    }
 
+    @media screen and (max-width: 768px) {
+        .overview {
+            display: block;
+
+            & h1 {
+                font-size: 1.2em;
+
+                &:last-of-type {
+                    font-size: 1.8em;
+                }
+            }
+        }
+    }
 </style>

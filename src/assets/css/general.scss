@@ -19,6 +19,10 @@ p {
   justify-content: space-between;
 }
 
+.center {
+  justify-content: center;
+}
+
 .align-center {
   align-items: center;
 }
@@ -42,6 +46,7 @@ input {
 
 // custom dropdown menu
 .dropdown {
+  cursor: pointer;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   padding: 0.7em 1em;
   border: 2px solid $cream;
@@ -73,4 +78,11 @@ input {
   font-size: 0.9em;
   margin-top: 0.4em;
   color: red;
+}
+
+// ------ RESPONSIVE --------
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.5em;
+  }
 }
