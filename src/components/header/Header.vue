@@ -1,23 +1,24 @@
 <template>
     <div class="header">
-        <h1 class="title">No Money, Why?</h1>
+        <h1>No Money, Why?</h1>
     </div>
-    <div :class="className">
-        <h3 class="title">{{ message }}</h3>
-    </div>
-    <div v-if="show" class="name-input">
-        <h3>What's your name?</h3>
-        <form @submit.prevent="handleSubmit">
-            <input type="text" v-model="user">
-            <div class="error">{{ error }}</div>
-        </form>
-    </div>
+    <YellowBox :message="message"/>
+    <YellowBox v-if="show" message="What's your name?" >
+        <slot>
+            <form @submit.prevent="handleSubmit">
+                <input type="text" v-model="user">
+                <div class="error">{{ error }}</div>
+            </form>
+        </slot>
+    </YellowBox>
 </template>
 
 <script>
 import { ref, watch } from 'vue';
+import YellowBox from '../utilities/YellowBox.vue';
 
     export default {
+        components: { YellowBox },
         setup(){
             const user = ref('');
             const error = ref('');
@@ -64,34 +65,9 @@ import { ref, watch } from 'vue';
     padding: 1em 2em;
 }
 
-.title {
-    margin: 0;
-}
-
-.welcome {
-    width: 55%;
-    margin: 2em auto;
-    padding: 2em;
-    border-radius: 2em;
-    background-color: $yellow;
-    @include fade-in-bottom;
-}
-
-.new {
-    @extend .welcome;
-    position: relative;
-    margin: 10em auto 0 auto;
-}
-
 .name-input {
-    @extend .new;
+    position: relative;
     margin-top: 2em;
-}
-
-@media (max-width: 425px) {
-    .welcome {
-        width: 70%;
-    }
 }
 
 </style>
