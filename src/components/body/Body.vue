@@ -1,7 +1,6 @@
 <template>
     <div>
         <Welcome v-if="!user" @changed="getUser"/>
-        
     </div>
 </template>
 
