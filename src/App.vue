@@ -1,21 +1,24 @@
 <template>
-  <h1>Hello World</h1>
+  <Header />
 </template>
 
 <script>
+import Header from './components/header/Header'
+
 export default {
   name: 'App',
-
+  components: { Header }
 }
 </script>
 
 <style lang="scss">
-@import './assets/css/variables.scss';
-
-#app {
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: $navy;
   margin: 0;
+  padding: 0;
+  background-color: $white;
 }
+
 </style>

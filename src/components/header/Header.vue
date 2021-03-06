@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="title">
+        <h1>No Money, Why?</h1>
     </div>
 </template>
 
@@ -11,5 +11,5 @@
 </script>
 
 <style lang="scss" scoped>
-
+    
 </style>
