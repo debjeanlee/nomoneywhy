@@ -18,7 +18,7 @@ import { ref, watch } from 'vue';
 
     export default {
         components: { YellowBox },
-        setup(){
+        setup(props, {emit}){
             const user = ref('');
             const error = ref('');
             const name = ref('Stranger');
@@ -37,7 +37,7 @@ import { ref, watch } from 'vue';
                localStorage.name = user.value;
                show.value = false;
                name.value = user.value;
-               this.$emit('user')
+               emit('changed')
             }
             
             getWelcomeMsg();
