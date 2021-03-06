@@ -56,11 +56,19 @@
         width: 95vw;
         height: 33em;
     }
+
+    .row {
+        padding-right: 1em;
+    }
 }
 
 @media screen and (max-width: 425px) {
     .modal {
         margin-top: 5em;
+    }
+
+    .row {
+        padding-right: 1.6em;
     }
 }
 </style>
