@@ -32,3 +32,4 @@ In the case of the expense tracker, users should be able to:
 - Add budget/income section
 - Connect to Firebase?
 - Find better way to refactor files for better application performance
+- see expenditure on specific day, range of dates, month, year
