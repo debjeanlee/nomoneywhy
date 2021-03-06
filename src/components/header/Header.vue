@@ -1,20 +1,29 @@
 <template>
-    <div class="header">
-        <h1>
-            <FontAwesomeIcon class="wallet" :icon="myIcon" />
-            No Money, <em>Why?</em>
-        </h1>
+    <div class="header flex between">
+        <div>
+            <h1>
+                <FontAwesomeIcon class="wallet" :icon="myIcon" />
+                No Money, <em>Why?</em>
+            </h1>
+        </div>
+        <div v-if="user !== 'Stranger'">
+            <h1>
+                
+            </h1>
+        </div>
     </div>
 </template>
 
 <script>
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-    import { faWallet } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faWallet } from '@fortawesome/free-solid-svg-icons'
 
     export default {
+        props: ['user'],
         components: { FontAwesomeIcon },
         setup(){
             const myIcon = faWallet
+         
             return { myIcon }
         },
     }

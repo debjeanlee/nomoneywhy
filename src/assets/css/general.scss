@@ -10,6 +10,15 @@ p {
   padding: 0;
 }
 
+// --- General
+.flex {
+  display: flex;
+}
+
+.between {
+  justify-content: space-between;
+}
+
 // --- Forms
 input {
   font-family: Avenir, Helvetica, Arial, sans-serif;
