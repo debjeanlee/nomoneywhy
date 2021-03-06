@@ -35,7 +35,7 @@ After doing a rough sketch, I usually pick a colour theme. Since this app is abo
 
 I figured since we're dealing with money, just choose a green-based theme. Headed to my go-to [colour palette generator](https://coolors.com/generate) and started fiddling. This is what I ended up with:
 
-![palette]('./images/palette.png')
+![palette](images/palette.png)
 
 ### Furthers
 
