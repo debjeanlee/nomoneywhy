@@ -6,11 +6,6 @@
                 No Money, <em>Why?</em>
             </h1>
         </div>
-        <div v-if="user !== 'Stranger'">
-            <h1>
-                
-            </h1>
-        </div>
     </div>
 </template>
 
