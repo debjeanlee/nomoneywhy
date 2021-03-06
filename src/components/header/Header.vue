@@ -6,7 +6,7 @@
         <h3 class="title">{{ message }}</h3>
     </div>
     <div v-if="show" class="name-input">
-        <h3>What's your name? {{ user }}</h3>
+        <h3>What's your name?</h3>
         <form @submit.prevent="handleSubmit">
             <input type="text" v-model="user">
             <div class="error">{{ error }}</div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity';
+import { ref, watch } from 'vue';
 
     export default {
         setup(){
@@ -27,8 +27,7 @@ import { ref } from '@vue/reactivity';
             const show = ref(false)
 
             const getWelcomeMsg = () => {
-                if (localStorage.name) {
-                    name.value = localStorage.name;
+                if (name.value !== 'Stranger') {
                     className.value = 'welcome'
                     return message.value = `Welcome, ${name.value}!`
                 }
@@ -38,17 +37,20 @@ import { ref } from '@vue/reactivity';
                if (!user.value) return error.value = `Please tell us your name!`;
                if (user.value === 'Stranger') return error.value = `Please try another name!`;
                localStorage.name = user.value;
-               user.value = '';
-               error.value = '';
-               show.value = 'false';
+               show.value = false;
+               name.value = user.value;
             }
-
+            
             getWelcomeMsg();
             setTimeout(() => {
                 if (name.value === 'Stranger'){
                     show.value = true;
                 }
             }, 1500)
+
+            watch(name, () => {
+                getWelcomeMsg();
+            })
             
             return { message, className, name, show, user, handleSubmit, error }
         }
@@ -72,13 +74,13 @@ import { ref } from '@vue/reactivity';
     padding: 2em;
     border-radius: 2em;
     background-color: $yellow;
+    @include fade-in-bottom;
 }
 
 .new {
     @extend .welcome;
     position: relative;
     margin: 10em auto 0 auto;
-    @include fade-in-bottom;
 }
 
 .name-input {
