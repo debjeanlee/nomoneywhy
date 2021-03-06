@@ -1,7 +1,7 @@
 <template>
     <div class="overview center">
-        <h1>{{ user }}'s expenses in {{curMonthStr}}: </h1>       
-        <h1>$ {total}</h1>
+        <h1>{{ user }}'s expenses in {{curMonthStr}}:</h1>       
+        <h1> ${total}</h1>
     </div>
 </template>
 
@@ -26,6 +26,10 @@ import getDate from '../../../functions/getDate'
     .overview {
         display: flex;
         margin-top: 2em;
+
+        & h1:last-child {
+            margin-left: 0.3em;
+        }
     }
 
     @media screen and (max-width: 768px) {
@@ -36,6 +40,7 @@ import getDate from '../../../functions/getDate'
                 font-size: 1.2em;
 
                 &:last-of-type {
+                    margin: 0;
                     font-size: 1.8em;
                 }
             }

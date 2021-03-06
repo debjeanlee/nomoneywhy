@@ -1,27 +1,38 @@
 <template>
     <div class="flex center">
-        <form action="">
+        <form action="" @submit.prevent="addItem">
             <!-- DESCRIPTION -->
             <div class="form-label">Description: </div>
             <input type="text" v-model="description" placeholder="potato..">
-            <!-- DATE -->
-            <div class="form-label">Date: </div>
-            <input type="date" v-model="date" class="date-picker" >
-            <!-- CATEGORY DROPDOWN -->
-            <div class="form-label">Category: </div>
-            <div>
-                <div class="dropdown" @click="toggleOpen">
-                    <div class="flex between align-center">
-                        <div>{{ selectedCategory }}</div>
-                        <FontAwesomeIcon :icon="arrow" />
+            <div class="flex form-row">
+                <!-- DATE -->
+                <div class="half">
+                    <div class="form-label">Date: </div>
+                    <input type="date" v-model="date" class="date-picker" >
+                </div>
+                <!-- CATEGORY DROPDOWN -->
+                <div class="half">
+                <div class="form-label">Category: </div>
+                    <div>
+                        <div class="dropdown" @click="toggleOpen">
+                            <div class="display-option">
+                                <div class="flex between align-center">
+                                    <div>
+                                        {{ selectedCategory }}
+                                    </div>
+                                    <FontAwesomeIcon :icon="arrow" class="icon"/>
+                                </div>
+                            </div>
+                            <div v-if="openSelect" class="options-wrapper" @click="toggleOpen">
+                                <li class="option" v-for="category in categories" @click="handleSelect(category)" :key="category">
+                                    {{ category }}
+                                </li>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div v-if="openSelect" class="options-wrapper">
-                    <li class="option" v-for="category in categories" @click="handleSelect(category)" :key="category">
-                        {{ category }}
-                    </li>
-                </div>
             </div>
+            <button type="submit" @submit.prevent="addItem">Add Expense</button>
         </form>
     </div>
 </template>
@@ -51,6 +62,15 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
                 toggleOpen();
             }
 
+            const addItem = () => {
+                const item = {
+                    description,
+                    date,
+                    category: selectedCategory
+                }
+                console.log(item)
+            }
+
             return { 
                 categories, 
                 selectedCategory,
@@ -59,13 +79,17 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
                 handleSelect, 
                 arrow,
                 date,
-                description
+                description,
+                addItem
             }
         }
     }
 </script>
 
 <style lang="scss">
+.half {
+    width: 50%;
+}
 @media screen and (max-width: 768px) {
   .date-picker {
       background-color: $white;

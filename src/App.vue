@@ -21,14 +21,5 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  box-sizing: border-box;
-  color: $navy;
-  margin: 0;
-  padding: 0;
-  background-color: $white;
-}
 
 </style>

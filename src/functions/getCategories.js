@@ -3,9 +3,11 @@ import { ref } from 'vue';
 const getCategories = () => {
     const categories = ref([])
     if (!localStorage.categories) {
-       categories.value = ['Food', 'Bills', 'Transport', 'Entertainment', 'Healthcare', 'Housing', 'Education', 'Clothes', 'Others'];
+       const list = ['Food', 'Bills', 'Transport', 'Entertainment', 'Healthcare', 'Housing', 'Education', 'Clothes', 'Others'];
+       categories.value = list
+       localStorage.setItem('categories', JSON.stringify(list));
     } else {
-       categories.value = localStorage.categories
+       categories.value = JSON.parse(localStorage.categories)
     }
 
     return { categories };

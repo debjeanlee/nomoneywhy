@@ -12,3 +12,16 @@
     }
   }
 }
+
+@mixin button-default {
+  border: none;
+  padding: 0.7em 1em;
+  background-color: $green;
+  color: $white;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  border-radius: 3px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
