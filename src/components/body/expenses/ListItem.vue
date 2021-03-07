@@ -17,9 +17,11 @@
             </div>
         </div>
         <div class="item-right flex align-center between">
+            <!-- edit function: to add -->
             <button>
                 <font-awesome-icon :icon="myIcon" />
             </button>
+            <!-- delete -->
             <button @click.prevent="deleteItem">x</button>
         </div>
     </div>

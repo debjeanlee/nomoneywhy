@@ -44,7 +44,7 @@ p {
 
 .container {
   width: 80%;
-  margin: 1em auto;
+  margin: 0 auto;
 }
 
 // --- Forms
@@ -170,6 +170,12 @@ button {
     font-size: 1.5em;
   }
 
+  // general
+  .container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
   // form
   form {
     button {
@@ -218,12 +224,6 @@ button {
 }
 
 @media screen and (max-width: 425px) {
-  // general
-  .container {
-    width: 90vw;
-    margin: 0.2em auto;
-  }
-
   // form
   form {
     button {

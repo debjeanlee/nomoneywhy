@@ -47,6 +47,10 @@ const getDate = () => {
                 return 'November'
             case 12:
                 return 'December'
+            case 0:
+                return 'December'
+            case 13:
+                return 'January'
             default:
                 break;
         }
