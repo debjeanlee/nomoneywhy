@@ -22,7 +22,7 @@ import { onMounted, ref } from 'vue'
                         datasets: [{
                             // change to get data from props
                             // label: '# of Votes',
-                            data: [12, 19, 3, 7, 9, 37, 10, 6, 2],
+                            data: [ 27, 20, 50, 14, 200, 200, 5490, 0, 0 ],
                             backgroundColor: [
                                 '#FB7477',
                                 '#F7A578',

@@ -1,9 +1,9 @@
 <template>
     <div>
         <YellowBox :message="message"/>
-        <YellowBox v-if="show" message="What's your name?" class="get-user" >
+        <YellowBox v-if="show" message="What's your name?" class="get-user flex center" >
             <slot>
-                <form @submit.prevent="handleSubmit">
+                <form @submit.prevent="handleSubmit" >
                     <input type="text" v-model="user">
                     <div class="error">{{ error }}</div>
                 </form>
@@ -61,7 +61,7 @@ import { ref, watch } from 'vue';
     }
     input {
         text-align: center;
-        margin-top: 1.2em;
+        margin-top: 4   em;
         width: 54em;
         text-transform: none;
     }
@@ -70,7 +70,8 @@ import { ref, watch } from 'vue';
         input {
             width: 50vw;
             padding: 0.7em;
-            font-size: 1em
+            font-size: 1em;
+            margin-top: 2em;
         }
     }
 

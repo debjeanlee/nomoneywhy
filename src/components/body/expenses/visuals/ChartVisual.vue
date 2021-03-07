@@ -8,8 +8,12 @@
 
 <script>
 import PieChart from '../../../utilities/charts/PieChart'
+
     export default {
-        components: { PieChart }
+        components: { PieChart },
+        setup(){
+            
+        }
     }
 </script>
 

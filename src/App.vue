@@ -14,6 +14,7 @@ export default {
   setup(){
     const { user, load } = getUser();
     load();
+    
 
     return { user, load }
   }

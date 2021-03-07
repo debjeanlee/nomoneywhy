@@ -51,7 +51,7 @@ import getExpenses from '../../../functions/getExpenses'
         components: { FontAwesomeIcon },
         setup(props, {emit}){
             const { categories } = getCategories();
-            const { getAllExpenses } = getExpenses();
+            const { getAllExpenses, getNewId } = getExpenses();
             const error = ref({})
             const description = ref('')
             const date = ref(null)
@@ -75,6 +75,7 @@ import getExpenses from '../../../functions/getExpenses'
                 error.value.date = date.value ? '' : 'Please select a date'
                 if (!description.value || !date.value || !price.value) return error
 
+                const id = getNewId();
                 const selectedDate = date.value
                 const item = {
                     description: description.value,
@@ -82,7 +83,8 @@ import getExpenses from '../../../functions/getExpenses'
                     month: selectedDate.slice(5,7),
                     year: selectedDate.slice(0,4),
                     category: selectedCategory.value,
-                    price: price.value
+                    price: price.value,
+                    id
                 }
                 const newList = getAllExpenses();
                 newList.unshift(item)

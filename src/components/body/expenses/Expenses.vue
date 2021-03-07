@@ -1,7 +1,8 @@
 <template>
-    <Overview v-if="user !== 'Stranger'" />
+    <!-- "User" expenses in month year -->
+    <Overview :month="monthStr" :year="yearTwoDigit" />
     <div class="container">
-        <!-- Add Expense Modal -->
+        <!-- AddExpense Modal -->
         <teleport to='#modals'>
             <Modal v-if="addItem" @close="closeModal" >
                 <slot>
@@ -10,31 +11,37 @@
                 </slot>
             </Modal>
         </teleport>
+
         <!-- Month Navigation -->
         <div class="flex between align-center month-nav">
+        <!-- add click logic for button -->
             <div class="month-btn">
                 <font-awesome-icon :icon="left" />
-                {{ prevMonth }}
+                {{ prevMonth.month }} {{ prevMonth.year }}
             </div>
             <div class="total-spent">
                 <h1>${{ total }}</h1>
             </div>
+        <!-- add click logic for button -->
             <div class="month-btn">
-                {{ nextMonth }}
+                {{ nextMonth.month }} {{ nextMonth.year }}
                 <font-awesome-icon :icon="right" />
             </div>
         </div>
-        <!-- Visualisation -->
+
+        <!-- CHART -->
         <ChartVisual />
-        <!-- Add Expense Button -->
+
         <div class="flex button-row">
+        <!-- *** DOES NOT WORK YET **** filter categories -->
             <button class="list-item filter" >Filter Selection</button>
+        <!-- Add Expense Button -->
             <button class="list-item add" @click="() => addItem = !addItem">Add Item</button>
         </div>
+
         <!-- Expenses -->
         <ExpenseList :v-if="curList" :list="curList" @deleted="handleAdd"/>
         <h1 v-if="showMsg">No expenses added for this month</h1>
-        <!-- filter categories -->
     </div>
 </template>
 
@@ -56,21 +63,25 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
          const left = faAngleDoubleLeft
          const right = faAngleDoubleRight
          const { getMonthExpenses } = getExpenses();
-         const { month, getMonthStr } = getDate();
+         const { month, getMonthStr, year } = getDate();
          const addItem = ref(false)
+         const monthStr = ref(null);
          const selectedMonth = ref(month)
-         const prevMonth = ref(null)
-         const nextMonth = ref(null)
+         const prevMonth = ref({})
+         const nextMonth = ref({})
          const curList = ref([])
          const total = ref(null)
          const showMsg = ref(null)
+         const yearTwoDigit =ref(null)
 
         const closeModal = () => {
             return addItem.value = false;
          }  
 
+        // SORT OUT SORTING BY DATE
         const getExpenseList = () => {
-            return curList.value = getMonthExpenses(selectedMonth.value);
+            const list = getMonthExpenses(selectedMonth.value);
+            return curList.value = list;
         }
 
         const calcMonthExpenditure = () => {
@@ -87,13 +98,29 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
         }
 
         onMounted(() => {
-            prevMonth.value = getMonthStr(month - 1)
-            nextMonth.value = getMonthStr(month + 1)
+            yearTwoDigit.value = year.toString().slice(2)
+            monthStr.value = getMonthStr(month)
+            prevMonth.value.month = getMonthStr(month - 1)
+            prevMonth.value.year = prevMonth.value.month === 'January' ? (year-1).toString.slice(2) : yearTwoDigit.value
+            nextMonth.value.month = getMonthStr(month + 1)
+            nextMonth.value.year = nextMonth.value.month === 'December' ? (year+1).toString.slice(2) : yearTwoDigit.value
             getExpenseList()
             calcMonthExpenditure()
             showMsg.value = curList.value.length === 0 ? true : false
         })
-        return { addItem, closeModal, curList, handleAdd, prevMonth, nextMonth, total, left, right, showMsg }
+        return { 
+            addItem, 
+            closeModal, 
+            curList, 
+            handleAdd, 
+            monthStr,
+            yearTwoDigit,
+            prevMonth, 
+            nextMonth, 
+            total, 
+            left, 
+            right, 
+            showMsg }
      }
     }
 </script>
