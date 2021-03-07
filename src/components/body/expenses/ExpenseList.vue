@@ -10,7 +10,7 @@
             </Modal>
         </teleport>
         <!-- Visualisation -->
-        <h1>Graph here</h1>
+        <ChartVisual />
         <!-- Add Expense Button -->
         <button @click="() => addItem = !addItem">+</button>
         <!-- Expenses -->
@@ -23,9 +23,10 @@
 import { ref } from 'vue'
 import AddExpense from './AddExpense'
 import Modal from '../../utilities/Modal'
+import ChartVisual from './charts/ChartVisual'
 
     export default {
-     components: { AddExpense, Modal },
+     components: { AddExpense, Modal, ChartVisual },
      setup(){
          const add = ref(false)
          const addItem = ref(false)
