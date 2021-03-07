@@ -76,7 +76,7 @@ Adding Expenses
 
 I actually had a lot of problems with this. There were many wrapper libraries not compatible with Vue 3, so after trying a few, I tried to make it reactive, but I didn't manage to do so. So my charts are still not reactive ):
 
-### Furthers
+### Furthers/Todos
 
 - Add filter selection functionality
 - Find better way to sort expenses by dates
@@ -88,4 +88,4 @@ I actually had a lot of problems with this. There were many wrapper libraries no
 - Let users add new categories
 - _**REFACTOR AND OPTIMIZE EVERYTHING**_
 
-I've learnt a lot. Will do better next time!
+I've learnt a lot. Like perhaps check the compatibility of your favourite libraries before choosing what version of anything to work with!! Will do better next time.
