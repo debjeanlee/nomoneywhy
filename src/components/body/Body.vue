@@ -10,12 +10,14 @@
 import Welcome from './Welcome';
 import ExpenseList from './expenses/ExpenseList';
 import Overview from './overview/Overview.vue';
+import getCategories from '../../functions/getCategories'
 
     export default {
         props: ['user'],
         components: { Welcome, ExpenseList, Overview },
         setup(){
           
+          getCategories();
         }
     }
 </script>

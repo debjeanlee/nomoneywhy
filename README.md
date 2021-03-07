@@ -43,3 +43,5 @@ I figured since we're dealing with money, just choose a green-based theme. Heade
 - Connect to Firebase?
 - Find better way to refactor files for better application performance
 - see expenditure on specific day, range of dates, month, year
+- Let user choose change chart visualisation type
+- Let users add new categories

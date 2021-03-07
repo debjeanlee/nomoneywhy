@@ -11,34 +11,42 @@ import { onMounted, ref } from 'vue'
     export default {
         setup(){
             const canvas = ref(null)
+            const categoryData = JSON.parse(localStorage.categories)
+            const windowWidth = window.innerWidth
+            const width = ref(100);
 
             onMounted(() => {
+                console.log(windowWidth)
                 const ctx = canvas.value.getContext('2d');
                 new Chart(ctx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        labels: categoryData,
                         datasets: [{
-                            label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
+                            // change to get data from props
+                            // label: '# of Votes',
+                            data: [12, 19, 3, 7, 9, 37, 10, 6, 2],
                             backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
+                                '#FB7477',
+                                '#F7A578',
+                                '#FABE75',
+                                '#FAD275',
+                                '#B4D39C',
+                                '#99D6C4',
+                                '#A2CDCC',
+                                '#8CC9E3',
+                                '#C2A9C6'
                             ],
                             // borderColor: [],
                             // hoverBackgroundColor: ['gray'],
-                            hoverBorderWidth: 4,
+                            hoverBorderWidth: 0,
                             // hoverBorderColor: ['$salmon'], cannot use scss vars
                             borderWidth: 0
                         }]
                     },
                     options: {
                         responsive: true,
-                        circumference: 2 * Math.PI,
+                        // circumference: 2 * Math.PI,
                         cutoutPercentage: 50,
                         animation: {
                             animateRotate: true,
@@ -46,17 +54,21 @@ import { onMounted, ref } from 'vue'
                         }
                     }
                 })
-                // console.log(PieChart)
-                console.log(canvas.value)
-                console.log(ctx)
             })
-            return { canvas }
+            return { canvas, width }
         }
     }
 </script>
 
 <style lang="scss" scoped>
+div {
+    width: 60vw;
+    margin-bottom: 2em;
+}
+
+@media screen and (max-width: 768px) {
     div {
-        border: 3px solid $salmon;
+        width: 100vw;
     }
+}
 </style>

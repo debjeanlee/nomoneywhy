@@ -1,7 +1,8 @@
 <template>
     <div>
-        <h1>Graph here</h1>
-        <PieChart />
+        <div class="flex center">
+            <PieChart />
+        </div>
     </div>
 </template>
 

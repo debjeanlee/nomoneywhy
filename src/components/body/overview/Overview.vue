@@ -1,7 +1,7 @@
 <template>
     <div class="overview center">
-        <h1>{{ user }}'s expenses in {{curMonthStr}}:</h1>       
-        <h1> ${total}</h1>
+        <h1>{{ user }}'s expenses in {{curMonthStr}}</h1>       
+        <!-- <h1> ${total}</h1> -->
     </div>
 </template>
 
