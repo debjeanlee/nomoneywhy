@@ -79,6 +79,7 @@ I actually had a lot of problems with this. There were many wrapper libraries no
 ### Furthers/Todos
 
 - Add filter selection functionality
+- Add graph responsiveness ):
 - Find better way to sort expenses by dates
 - Add budget/income section
 - Connect to Firebase?
@@ -88,4 +89,11 @@ I actually had a lot of problems with this. There were many wrapper libraries no
 - Let users add new categories
 - _**REFACTOR AND OPTIMIZE EVERYTHING**_
 
-I've learnt a lot. Like perhaps check the compatibility of your favourite libraries before choosing what version of anything to work with!! Will do better next time.
+### Reflections
+
+I've learnt a lot. Like perhaps it's a good idea to check the compatibility of your favourite libraries before choosing what version of anything to work with!
+
+Also proud of myself for taking on the challenge of using a new framework in such a short timeframe.
+I definitely want to reach a point where I can think about how to refactor my code and organise my project better. Not gonna lie - it's in a terrible mess now. Just like my sleep-deprived brain.
+
+Will do better next time!
