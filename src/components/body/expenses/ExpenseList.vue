@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="list-wrapper">
+        <div>
             <div v-for="(item, i) in list" :key="i">
                 <ListItem :item="item" />
             </div>
@@ -25,6 +25,4 @@ import ListItem from './ListItem'
 
 <style lang="scss">
 
-.list-wrapper {
-}
 </style>

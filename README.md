@@ -37,6 +37,19 @@ I figured since we're dealing with money, just choose a green-based theme. Heade
 
 ![palette](images/palette.png)
 
+One more for the graphs:
+![rainbow](images/rainbow.png)
+
+After getting my colour schemes together and choosing a nice data visualization library, I got to work.
+
+### Wins
+
+### Challenges
+
+##### Data Visualisation
+
+I actually had a lot of problems with this. There were many wrapper libraries not compatible with Vue 3, so after trying a few, I gave up and created my own.
+
 ### Furthers
 
 - Add budget/income section
