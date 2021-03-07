@@ -60,6 +60,7 @@ import { ref, watch } from 'vue';
         height: 5em;
     }
     input {
+        text-align: center;
         margin-top: 1.2em;
         width: 54em;
         text-transform: none;

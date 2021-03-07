@@ -12,11 +12,8 @@ import { onMounted, ref } from 'vue'
         setup(){
             const canvas = ref(null)
             const categoryData = JSON.parse(localStorage.categories)
-            const windowWidth = window.innerWidth
-            const width = ref(100);
 
             onMounted(() => {
-                console.log(windowWidth)
                 const ctx = canvas.value.getContext('2d');
                 new Chart(ctx, {
                     type: 'doughnut',
@@ -55,7 +52,7 @@ import { onMounted, ref } from 'vue'
                     }
                 })
             })
-            return { canvas, width }
+            return { canvas }
         }
     }
 </script>

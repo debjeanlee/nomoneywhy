@@ -212,6 +212,12 @@ input {
 }
 
 @media screen and (max-width: 425px) {
+  // general
+  .container {
+    width: 90vw;
+    margin: 0.2em auto;
+  }
+
   // form
   form {
     button {
