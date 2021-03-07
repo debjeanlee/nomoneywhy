@@ -1,7 +1,7 @@
 <template>
     <div>
         <YellowBox :message="message"/>
-        <YellowBox v-if="show" message="What's your name?" >
+        <YellowBox v-if="show" message="What's your name?" class="get-user" >
             <slot>
                 <form @submit.prevent="handleSubmit">
                     <input type="text" v-model="user">
@@ -55,6 +55,28 @@ import { ref, watch } from 'vue';
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    .get-user {
+        height: 5em;
+    }
+    input {
+        margin-top: 1.2em;
+        width: 54em;
+        text-transform: none;
+    }
 
+    @media screen and (max-width: 768px) {
+        input {
+            width: 50vw;
+            padding: 0.7em;
+            font-size: 1em
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        input {
+            width: 60vw;
+            padding: 0.6em;
+        }
+    }
 </style>
