@@ -15,7 +15,7 @@
         <!-- Month Navigation -->
         <div class="flex between align-center month-nav">
         <!-- add click logic for button -->
-            <div class="month-btn">
+            <div class="month-btn" @click="goPrev">
                 <font-awesome-icon :icon="left" />
                 {{ prevMonth.month }} {{ prevMonth.year }}
             </div>
@@ -23,7 +23,7 @@
                 <h1>${{ total }}</h1>
             </div>
         <!-- add click logic for button -->
-            <div class="month-btn">
+            <div class="month-btn" @click="goNext">
                 {{ nextMonth.month }} {{ nextMonth.year }}
                 <font-awesome-icon :icon="right" />
             </div>
@@ -97,13 +97,36 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
             closeModal();
         }
 
-        onMounted(() => {
+        const getMonthYear = () => {
             yearTwoDigit.value = year.toString().slice(2)
-            monthStr.value = getMonthStr(month)
-            prevMonth.value.month = getMonthStr(month - 1)
-            prevMonth.value.year = prevMonth.value.month === 'January' ? (year-1).toString.slice(2) : yearTwoDigit.value
-            nextMonth.value.month = getMonthStr(month + 1)
-            nextMonth.value.year = nextMonth.value.month === 'December' ? (year+1).toString.slice(2) : yearTwoDigit.value
+            monthStr.value = getMonthStr(selectedMonth.value)
+            prevMonth.value.month = getMonthStr(selectedMonth.value - 1)
+            prevMonth.value.year = prevMonth.value.month === 'December' ? (parseInt(yearTwoDigit.value)-1) : yearTwoDigit.value
+            nextMonth.value.month = getMonthStr(selectedMonth.value + 1)
+            nextMonth.value.year = nextMonth.value.month === 'January' ? (parseInt(yearTwoDigit.value)+1) : yearTwoDigit.value
+        }
+
+        const goPrev = () => {
+            selectedMonth.value -= 1
+            curList.value = ''
+            getExpenseList();
+            getMonthYear();
+            calcMonthExpenditure();
+            showMsg.value = curList.value.length === 0 ? true : false
+        }
+
+        const goNext = () => {
+            selectedMonth.value += 1
+            curList.value = ''
+            getExpenseList();
+            getMonthYear();
+            calcMonthExpenditure();
+            showMsg.value = curList.value.length === 0 ? true : false
+        }
+
+
+        onMounted(() => {
+            getMonthYear()
             getExpenseList()
             calcMonthExpenditure()
             showMsg.value = curList.value.length === 0 ? true : false
@@ -120,7 +143,10 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
             total, 
             left, 
             right, 
-            showMsg }
+            showMsg,
+            goPrev,
+            goNext
+            }
      }
     }
 </script>
@@ -136,6 +162,9 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
 
     .month-btn {
         width: 20vw;
+        &:hover{
+            cursor: pointer;
+        }
     }
 
     .total-spent {

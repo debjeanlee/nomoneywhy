@@ -61,7 +61,7 @@ import { ref, watch } from 'vue';
     }
     input {
         text-align: center;
-        margin-top: 4   em;
+        margin-top: 4em;
         width: 54em;
         text-transform: none;
     }

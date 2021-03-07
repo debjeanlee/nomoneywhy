@@ -42,19 +42,48 @@ One more for the graphs:
 
 After getting my colour schemes together and choosing a nice data visualization library, I got to work.
 
+No backend was used. All data was stored on local storage.
+
+## SUMMARY
+
 ### Wins
+
+- My app looks decent!
+- Got core features to work (except the data visualisation)
+
+#### Check out some screen grabs of the app:
+
+New user registration
+![new](images/new.png)
+
+Dashboard
+![dashboard](images/home.png)
+
+Adding Expenses
+![add1](images/add1.png)
+![add2](images/add2.png)
 
 ### Challenges
 
+- Getting familiar with Vue in one week
+- Not using Vue 2? _mistakes were made my charts could have worked with less effort **I think**_
+- Keeping my code clean
+  - Was too focused on trying to get things to work and may have neglected the DRY rule
+
 ##### Data Visualisation
 
-I actually had a lot of problems with this. There were many wrapper libraries not compatible with Vue 3, so after trying a few, I gave up and created my own.
+I actually had a lot of problems with this. There were many wrapper libraries not compatible with Vue 3, so after trying a few, I tried to make it reactive, but I didn't manage to do so. So my charts are still not reactive ):
 
 ### Furthers
 
+- Add filter selection functionality
+- Find better way to sort expenses by dates
 - Add budget/income section
 - Connect to Firebase?
 - Find better way to refactor files for better application performance
 - see expenditure on specific day, range of dates, month, year
 - Let user choose change chart visualisation type
 - Let users add new categories
+- _**REFACTOR AND OPTIMIZE EVERYTHING**_
+
+I've learnt a lot. Will do better next time!
