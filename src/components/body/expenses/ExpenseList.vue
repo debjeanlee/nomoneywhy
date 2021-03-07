@@ -9,13 +9,16 @@
 </template>
 
 <script>
+// import { watch } from 'vue'
 import ListItem from './ListItem'
 
     export default {
     props: ['list'],
     components: { ListItem },
       setup(){
-          
+        //   watch(this.list, () => {
+        //       console.log(this.list)
+        //   })
       }
     }
 </script>

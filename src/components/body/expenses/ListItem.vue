@@ -1,10 +1,15 @@
 <template>
     <div class="list-item flex between">
         <div class="item-left">
-            {{item.date}} {{month}}
-        </div>
-        <div class="item-center flex between">
             <div>
+                {{item.date}} {{month}}
+            </div>
+            <div>
+                {{ category }}
+            </div>
+        </div>
+        <div class="item-center flex between align-center">
+            <div class="item-description">
                 {{item.description}}
             </div>
             <div>
@@ -24,6 +29,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import getDate from '../../../functions/getDate'
+import { computed } from 'vue'
 
     export default {
         props: ['item'],
@@ -32,8 +38,16 @@ import getDate from '../../../functions/getDate'
             const { getMonthStr } = getDate()
             const myIcon = faEdit
             const month = getMonthStr(parseInt(props.item.month)).slice(0,3)
+            // TEST THIS
+            const category = computed(() => {
+                let cat = props.item.category
+                if (cat === 'Entertainment') {
+                    cat = 'Ent'
+                }
+                return cat
+            })
             
-            return { myIcon, month }
+            return { myIcon, month, category }
         }
     }
 </script>
@@ -56,14 +70,24 @@ import getDate from '../../../functions/getDate'
 
 .item-left {
     margin: auto 0;
-    font-size: 0.8em;
+    font-size: 0.6em;
     font-weight: 600;
     letter-spacing: 2px;
     color: $gray;
+    width: 18%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .item-center {
-    width: 50%;
+    width: 60%;
+}
+
+.item-description {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.8em;
+    letter-spacing: 1px;
 }
 
 .item-right {
@@ -85,6 +109,11 @@ button {
     .list-item {
         width: 78vw;
     }
+
+    .item-left {
+        display: block;
+        width: 20%; 
+    }
     
     .item-center {
         width: 55%;
@@ -100,6 +129,10 @@ button {
     .list-item {
         width: 85vw;
         padding: 1em 0.5em;
+    }
+
+    .item-left {
+        width: 22%;
     }
 
     .item-center {

@@ -23,7 +23,7 @@
         margin-top: 10em;
         position: relative;
         width: 80vw;
-        height: 20em;
+        height: 25em;
         border-radius: 2em;
         background-color: $yellow;
     }
@@ -55,6 +55,7 @@
     .modal {
         width: 95vw;
         height: 33em;
+        overflow: scroll;
     }
 
     .row {

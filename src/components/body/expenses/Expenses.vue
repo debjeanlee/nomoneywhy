@@ -5,7 +5,7 @@
             <Modal v-if="addItem" @close="closeModal" >
                 <slot>
                     <!-- ADD THIS AFTER GETTING EXPENSE LOGIC <AddExpense @added="getExpenseList"/> -->
-                    <AddExpense />
+                    <AddExpense @added="handleAdd"/>
                 </slot>
             </Modal>
         </teleport>
@@ -17,7 +17,7 @@
             <button class="list-item add" @click="() => addItem = !addItem">Add Item</button>
         </div>
         <!-- Expenses -->
-        <ExpenseList v-if="curList" :list="curList" />
+        <ExpenseList :v-if="curList" :list="curList" />
         <!-- filter dates? -->
     </div>
 </template>
@@ -36,7 +36,6 @@ import ExpenseList from './ExpenseList.vue'
      setup(){
          const { getMonthExpenses } = getExpenses();
          const { month } = getDate();
-         const add = ref(false)
          const addItem = ref(false)
          const selectedMonth = ref(month)
          const curList = ref([])
@@ -45,10 +44,20 @@ import ExpenseList from './ExpenseList.vue'
             return addItem.value = false;
          }  
 
+        const getExpenseList = () => {
+            return curList.value = getMonthExpenses(selectedMonth.value);
+        }
+
+        const handleAdd = () => {
+            curList.value = '';
+            getExpenseList();
+            closeModal();
+        }
+
         onMounted(() => {
-            curList.value = getMonthExpenses(selectedMonth.value);
+            getExpenseList()
         })
-        return { add, addItem, closeModal, curList }
+        return { addItem, closeModal, curList, handleAdd }
      }
     }
 </script>

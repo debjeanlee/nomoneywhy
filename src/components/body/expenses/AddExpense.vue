@@ -4,8 +4,11 @@
             <!-- DESCRIPTION -->
             <div class="form-label">Description: <span class="error">{{ error.description }}</span></div>
             <input type="text" v-model="description" placeholder="potato..">
-            <div class="flex form-row">
+            <!-- DESCRIPTION -->
+            <div class="form-label">Price: <span class="error">{{ error.price }}</span></div>
+            <input type="number" v-model="price" placeholder="10000">
                 <!-- DATE -->
+            <div class="flex form-row">
                 <div class="half">
                     <div class="form-label">Date: <span class="error">{{ error.date }}</span></div>
                     <input type="date" v-model="date" class="date-picker" >
@@ -32,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" @submit.prevent="addItem">Add Expense</button>
+            <button type="submit" @submit.prevent="addItem" class="submit">Add Expense</button>
         </form>
     </div>
 </template>
@@ -42,17 +45,20 @@ import { ref } from 'vue';
 import getCategories from '../../../functions/getCategories'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import getExpenses from '../../../functions/getExpenses'
 
     export default {
         components: { FontAwesomeIcon },
-        setup(){
+        setup(props, {emit}){
             const { categories } = getCategories();
+            const { getAllExpenses } = getExpenses();
             const error = ref({})
             const description = ref('')
             const date = ref(null)
             const arrow = faChevronDown
             const openSelect = ref(false)
             const selectedCategory = ref('Food');
+            const price = ref('');
             
             const toggleOpen = () => {
                 return openSelect.value = !openSelect.value
@@ -64,19 +70,25 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
             }
 
             const addItem = () => {
+                error.value.description = description.value ? '' : 'Please describe this expense'
+                error.value.price = price.value ? '' : 'Please input the price'
+                error.value.date = date.value ? '' : 'Please select a date'
+                if (!description.value || !date.value || !price.value) return error
+
+                const selectedDate = date.value
                 const item = {
                     description: description.value,
-                    date: date.value,
-                    category: selectedCategory.value
+                    date: selectedDate.slice(8),
+                    month: selectedDate.slice(5,7),
+                    year: selectedDate.slice(0,4),
+                    category: selectedCategory.value,
+                    price: price.value
                 }
+                const newList = getAllExpenses();
+                newList.unshift(item)
 
-                error.value.description = item.description ? '' : 'Please describe this expense!'
-                error.value.date = item.date ? '' : 'Please select a date!'
-                if (!item.description || !item.date) return error
-
-                // ------ getExpenseList import external function -----
-                // save list to local storage
-                // $emit @added to get event list in parent
+                localStorage.expenses = JSON.stringify(newList);
+                emit('added')
             }
 
             return { 
@@ -89,7 +101,8 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
                 date,
                 description,
                 addItem,
-                error
+                error,
+                price
             }
         }
     }
@@ -105,6 +118,10 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 @media screen and (max-width: 768px) {
   .date-picker {
       background-color: $white;
+  }
+
+  .submit {
+      margin-bottom: 4em;
   }
 }
 
