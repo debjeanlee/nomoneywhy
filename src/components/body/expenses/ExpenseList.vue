@@ -23,7 +23,7 @@
 import { ref } from 'vue'
 import AddExpense from './AddExpense'
 import Modal from '../../utilities/Modal'
-import ChartVisual from './charts/ChartVisual'
+import ChartVisual from './visuals/ChartVisual'
 
     export default {
      components: { AddExpense, Modal, ChartVisual },

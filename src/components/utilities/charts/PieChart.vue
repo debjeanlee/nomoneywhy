@@ -55,6 +55,8 @@ import { onMounted, ref } from 'vue'
     }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+    div {
+        border: 3px solid $salmon;
+    }
 </style>
