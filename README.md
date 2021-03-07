@@ -38,6 +38,7 @@ I figured since we're dealing with money, just choose a green-based theme. Heade
 ![palette](images/palette.png)
 
 One more for the graphs:
+
 ![rainbow](images/rainbow.png)
 
 After getting my colour schemes together and choosing a nice data visualization library, I got to work.
