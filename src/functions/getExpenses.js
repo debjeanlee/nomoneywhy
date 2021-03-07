@@ -10,7 +10,20 @@ const getExpenses = () => {
         const all = getAllExpenses()
         return all.filter((el) => parseInt(el.month) === month)
     }
-    return { getAllExpenses, getMonthExpenses }
+
+    const getNewId = () => {
+        const all = getAllExpenses()
+        let biggest = 0;
+        all.forEach(el => {
+            let cur = Number(el.id)
+            if (cur > biggest) {
+                biggest = Number(el.id)
+            }
+        })
+        return biggest+=1;
+    }
+
+    return { getAllExpenses, getMonthExpenses, getNewId }
 }
 
 export default getExpenses

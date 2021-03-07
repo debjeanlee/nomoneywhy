@@ -20,12 +20,13 @@
             <button>
                 <font-awesome-icon :icon="myIcon" />
             </button>
-            <button>x</button>
+            <button @click.prevent="deleteItem">x</button>
         </div>
     </div>
 </template>
 
 <script>
+import getExpenses from '../../../functions/getExpenses'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import getDate from '../../../functions/getDate'
@@ -34,11 +35,12 @@ import { computed } from 'vue'
     export default {
         props: ['item'],
         components: { FontAwesomeIcon },
-        setup(props){
+        setup(props, {emit}){
             const { getMonthStr } = getDate()
             const myIcon = faEdit
             const month = getMonthStr(parseInt(props.item.month)).slice(0,3)
-            // TEST THIS
+            const { getAllExpenses } = getExpenses();
+
             const category = computed(() => {
                 let cat = props.item.category
                 if (cat === 'Entertainment') {
@@ -47,7 +49,18 @@ import { computed } from 'vue'
                 return cat
             })
             
-            return { myIcon, month, category }
+            const deleteItem = () => {
+                let all = getAllExpenses();
+                const removed = all.filter(item => {
+                    if (item.id === props.item.id) {
+                        return
+                    }
+                    return item
+                })
+                localStorage.expenses = JSON.stringify(removed)
+                emit('deleted')
+            }
+            return { myIcon, month, category, deleteItem }
         }
     }
 </script>

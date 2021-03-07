@@ -17,7 +17,7 @@
             <button class="list-item add" @click="() => addItem = !addItem">Add Item</button>
         </div>
         <!-- Expenses -->
-        <ExpenseList :v-if="curList" :list="curList" />
+        <ExpenseList :v-if="curList" :list="curList" @deleted="handleAdd"/>
         <!-- filter dates? -->
     </div>
 </template>

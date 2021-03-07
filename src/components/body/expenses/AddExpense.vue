@@ -6,7 +6,7 @@
             <input type="text" v-model="description" placeholder="potato..">
             <!-- DESCRIPTION -->
             <div class="form-label">Price: <span class="error">{{ error.price }}</span></div>
-            <input type="number" v-model="price" placeholder="10000">
+            <input type="number" step=".01" v-model="price" placeholder="$">
                 <!-- DATE -->
             <div class="flex form-row">
                 <div class="half">
