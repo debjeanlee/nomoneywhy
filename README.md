@@ -60,6 +60,7 @@ Dashboard
 ![dashboard](images/home.png)
 
 Adding Expenses
+
 ![add1](images/add1.png)
 ![add2](images/add2.png)
 
