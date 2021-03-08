@@ -4,8 +4,15 @@ Single page Expense Tracker that tells you why you suddenly have no more money.
 
 ## Contents
 
-1. [Tech Used](#tech-used)
-1. [Challenges](#challenges)
+- [Tech Used](#tech-used)
+- [Planning & Development Process](#planning-&-development-process)
+  - [User Stories](#user-stories)
+  - [Desigining](#designing)
+- [Summary](#summary)
+  - [Wins](#wins)
+  - [Challenges](#challenges)
+- [Furthers](#furthers)
+- [Reflections](#reflections)
 
 ### Tech Used
 
@@ -84,9 +91,9 @@ I managed to get my charts to rerender when new items were added. But the hover 
 
 ##### Data Visualisation
 
-I actually had a lot of problems with this. There were many wrapper libraries not compatible with Vue 3, so after trying a few, I tried to make it reactive, but I didn't manage to do so. So my charts are still not reactive ):
+~~I actually had a lot of problems with this. There were many wrapper libraries not compatible with Vue 3, so after trying a few, I tried to make it reactive, but I didn't manage to do so. So my charts are still not reactive ):~~
 
-### Furthers/Todos
+### Furthers
 
 - Add filter selection functionality
 - Fix graph hover bug
