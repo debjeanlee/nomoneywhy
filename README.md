@@ -4,10 +4,10 @@ Single page Expense Tracker that tells you why you suddenly have no more money.
 
 ## Contents
 
-1. [Tech Used](#tech)
+1. [Tech Used](#tech-used)
 1. [Challenges](#challenges)
 
-### <a href="#tech"></a> Tech Used
+### Tech Used
 
 - Vue.js 3
 - SCSS
@@ -75,7 +75,7 @@ _UPDATE_ As of Mar 8, 3.07PM
 I managed to get my charts to rerender when new items were added. But the hover is buggy.
 ![chart](images/chart.png)
 
-### <a href="#challenges"></a> Challenges
+### Challenges
 
 - Getting familiar with Vue in one week
 - Not using Vue 2? _mistakes were made my charts could have worked with less effort **I think**_
