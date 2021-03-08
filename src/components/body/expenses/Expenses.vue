@@ -49,7 +49,7 @@
 import { onMounted, ref } from 'vue'
 import AddExpense from './AddExpense'
 import Modal from '../../utilities/Modal'
-import ChartVisual from './visuals/ChartVisual'
+import ChartVisual from './ChartVisual'
 import getExpenses from '../../../functions/getExpenses'
 import getDate from '../../../functions/getDate'
 import ExpenseList from './ExpenseList.vue'
