@@ -80,8 +80,10 @@ Adding Expenses
 ![add1](images/add1.png)
 ![add2](images/add2.png)
 
+Charts
 _UPDATE_ As of Mar 8, 3.07PM
 I managed to get my charts to rerender when new items were added. But the hover is buggy.
+Also if you click on the individual categories, it removes it from the graph visualisation!
 ![chart](images/chart.png)
 
 ## Challenges
