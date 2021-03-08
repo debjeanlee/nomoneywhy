@@ -1,3 +1,4 @@
+import getDate from './getDate';
 
 const getExpenses = () => {
     // get list of all expenses
@@ -5,10 +6,15 @@ const getExpenses = () => {
         return localStorage.expenses ? JSON.parse(localStorage.expenses) : []
     }
 
+    // get cur Year
+    const { year } = getDate();
     // get list of expenses by month
-    const getMonthExpenses = (month) => {
+    const getMonthExpenses = (month, yr) => {
         const all = getAllExpenses()
-        return all.filter((el) => parseInt(el.month) === month)
+        if (!yr) {
+            return all.filter((el) => (parseInt(el.month) === month && parseInt(el.year) === year))
+        }
+        return all.filter((el) => (parseInt(el.month) === month && parseInt(el.year) === yr))
     }
 
     const getNewId = () => {

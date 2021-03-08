@@ -144,7 +144,8 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
             right, 
             showMsg,
             goPrev,
-            goNext
+            goNext,
+            selectedMonth,
             }
      }
     }

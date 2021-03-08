@@ -1,6 +1,7 @@
 <template>
     <div>
         <canvas id="chart" ref="canvas"></canvas>
+        {{month}} {{year}}
     </div>
 </template>
 
