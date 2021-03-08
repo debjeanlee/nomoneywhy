@@ -30,7 +30,7 @@
         </div>
 
         <!-- CHART -->
-        <ChartVisual />
+        <ChartVisual :month="selectedMonth" :year="yearTwoDigit" />
 
         <div class="flex button-row">
         <!-- *** DOES NOT WORK YET **** filter categories -->
@@ -145,7 +145,8 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
             right, 
             showMsg,
             goPrev,
-            goNext
+            goNext,
+            selectedMonth,
             }
      }
     }

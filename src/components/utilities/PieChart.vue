@@ -1,28 +1,48 @@
 <template>
     <div>
         <canvas id="chart" ref="canvas"></canvas>
+        {{month}} {{year}}
     </div>
 </template>
 
 <script>
 import Chart from 'chart.js'
 import { onMounted, ref } from 'vue'
+import getExpenses from '../../functions/getExpenses'
 
     export default {
-        setup(){
+        props: { month: Number, year: String },
+        setup(props){
+            const { getMonthExpenses } = getExpenses();
             const canvas = ref(null)
-            const categoryData = JSON.parse(localStorage.categories)
+            const year = parseInt('20' + props.year)
+            const data = getMonthExpenses(props.month, year);
+            let categoryData = []
 
-            onMounted(() => {
-                const ctx = canvas.value.getContext('2d');
-                new Chart(ctx, {
+            // gets list of categories in month
+            data.forEach(el => {
+                if (!categoryData.includes(el.category)) {
+                    categoryData.push(el.category)
+                }
+            })
+            let dataVals = []
+            categoryData.forEach(() => dataVals.push(0));
+            console.log(dataVals)
+            // gets total value of each category
+            data.forEach(el => {
+                let index = categoryData.indexOf(el.category)
+                let value = dataVals[index] + parseInt(el.price)
+                dataVals.splice(index, 1, value)
+            })
+            
+            const chartData = {
                     type: 'doughnut',
                     data: {
                         labels: categoryData,
                         datasets: [{
                             // change to get data from props
                             // label: '# of Votes',
-                            data: [ 27, 20, 50, 14, 200, 200, 5490, 0, 0 ],
+                            data: dataVals,
                             backgroundColor: [
                                 '#FB7477',
                                 '#F7A578',
@@ -50,7 +70,11 @@ import { onMounted, ref } from 'vue'
                             animateScale: false
                         }
                     }
-                })
+                }
+
+            onMounted(() => {
+                const ctx = canvas.value.getContext('2d');
+                new Chart(ctx, chartData)
             })
             return { canvas }
         }
