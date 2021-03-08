@@ -6,23 +6,46 @@
 
 <script>
 import Chart from 'chart.js'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
     export default {
-        setup(){
+        props: { values: Array, categories: Array },
+        setup(props){
             const canvas = ref(null)
-            const categoryData = JSON.parse(localStorage.categories)
+            const chart = ref(null);
 
-            onMounted(() => {
-                const ctx = canvas.value.getContext('2d');
-                new Chart(ctx, {
+            function updateChart(){
+                chart.value = ''
+                const ctx = canvas.value.getContext('2d')
+        
+                if (!props.categories || !props.values) {
+                    return chart.value = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
-                        labels: categoryData,
+                        labels: ['Nothing To Show'],
                         datasets: [{
-                            // change to get data from props
-                            // label: '# of Votes',
-                            data: [ 27, 20, 50, 14, 200, 200, 5490, 0, 0 ],
+                            data: [1],
+                            backgroundColor: ['9ca3a9'],
+                            hoverBorderWidth: 0,
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        circumference: 2*Math.PI,
+                    }
+                })
+                }
+
+                const vals = props.values
+                const cats = props.categories
+                
+                const object = {
+                    type: 'doughnut',
+                    data: {
+                        labels: cats,
+                        datasets: [{
+                            data: vals,
                             backgroundColor: [
                                 '#FB7477',
                                 '#F7A578',
@@ -34,23 +57,23 @@ import { onMounted, ref } from 'vue'
                                 '#8CC9E3',
                                 '#C2A9C6'
                             ],
-                            // borderColor: [],
-                            // hoverBackgroundColor: ['gray'],
                             hoverBorderWidth: 0,
-                            // hoverBorderColor: ['$salmon'], cannot use scss vars
                             borderWidth: 0
                         }]
                     },
                     options: {
                         responsive: true,
-                        // circumference: 2 * Math.PI,
-                        cutoutPercentage: 50,
-                        animation: {
-                            animateRotate: true,
-                            animateScale: false
-                        }
                     }
-                })
+                }
+                chart.value = new Chart(ctx, object)
+            }
+
+            watch(props,() => {
+                updateChart()
+            })
+
+            onMounted(() => {
+                updateChart()
             })
             return { canvas }
         }

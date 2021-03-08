@@ -30,7 +30,7 @@
         </div>
 
         <!-- CHART -->
-        <ChartVisual />
+        <ChartVisual :data="curList" />
 
         <div class="flex button-row">
         <!-- *** DOES NOT WORK YET **** filter categories -->
@@ -123,7 +123,6 @@ import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-s
             calcMonthExpenditure();
             showMsg.value = curList.value.length === 0 ? true : false
         }
-
 
         onMounted(() => {
             getMonthYear()
