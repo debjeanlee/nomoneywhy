@@ -2,7 +2,7 @@
 
 Single page Expense Tracker that tells you why you suddenly have no more money.
 
-## Contents
+# Contents
 
 - [Tech Used](#tech-used)
 - [Planning & Development Process](#planning-&-development-process)
@@ -14,16 +14,16 @@ Single page Expense Tracker that tells you why you suddenly have no more money.
 - [Furthers](#furthers)
 - [Reflections](#reflections)
 
-### Tech Used
+# Tech Used
 
 - Vue.js 3
 - SCSS
 - Font Awesome Icons
 - Charts.js
 
-### Planning & Development Process
+# Planning & Development Process
 
-#### User Stories
+## User Stories
 
 Stage one of planning for development of any application is always getting user stories. Placing yourself in the user's shoes helps determine what kind of functionality the application needs.
 
@@ -40,7 +40,7 @@ In the case of the expense tracker, users should be able to:
 - See visualisation of percentage of money spent on a specific category for specified month
   - see total amount spent on specific category for specified month
 
-#### Designing
+## Designing
 
 Since this was my first time using Vue, I spent a lot of time researching data visualisation libraries, then conceptualizing a rough layout _Which I would rather not share because I think I'm the only one who understands my sketch/gibberish_. Of course I spent a bit of time figuring out the basics of Vue as well.
 
@@ -58,9 +58,9 @@ After getting my colour schemes together and choosing a nice data visualization 
 
 No backend was used. All data was stored on local storage.
 
-## SUMMARY
+# SUMMARY
 
-### Wins
+## Wins
 
 - My app looks decent!
 - Got core features to work (except the data visualisation)
@@ -82,18 +82,18 @@ _UPDATE_ As of Mar 8, 3.07PM
 I managed to get my charts to rerender when new items were added. But the hover is buggy.
 ![chart](images/chart.png)
 
-### Challenges
+## Challenges
 
 - Getting familiar with Vue in one week
 - Not using Vue 2? _mistakes were made my charts could have worked with less effort **I think**_
 - Keeping my code clean
   - Was too focused on trying to get things to work and may have neglected the DRY rule
 
-##### Data Visualisation
+### Data Visualisation
 
 ~~I actually had a lot of problems with this. There were many wrapper libraries not compatible with Vue 3, so after trying a few, I tried to make it reactive, but I didn't manage to do so. So my charts are still not reactive ):~~
 
-### Furthers
+# Furthers
 
 - Add filter selection functionality
 - Fix graph hover bug
@@ -106,7 +106,7 @@ I managed to get my charts to rerender when new items were added. But the hover 
 - Let users add new categories
 - _**REFACTOR AND OPTIMIZE EVERYTHING**_
 
-### Reflections
+# Reflections
 
 I've learnt a lot. Like perhaps it's a good idea to check the compatibility of your favourite libraries before choosing what version of anything to work with!
 
@@ -114,3 +114,5 @@ Also proud of myself for taking on the challenge of using a new framework in suc
 I definitely want to reach a point where I can think about how to refactor my code and organise my project better. Not gonna lie - it's in a terrible mess now. Just like my sleep-deprived brain.
 
 Will do better next time!
+
+[Back to top](#contents)
