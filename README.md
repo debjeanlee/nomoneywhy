@@ -2,7 +2,11 @@
 
 Single page Expense Tracker that tells you why you suddenly have no more money.
 
-### Tech Used
+## Contents
+
+1. [Tech Used](#tech)
+
+### <a href="#tech"></a> Tech Used
 
 - Vue.js 3
 - SCSS
@@ -65,6 +69,10 @@ Adding Expenses
 ![add1](images/add1.png)
 ![add2](images/add2.png)
 
+_UPDATE_ As of Mar 8, 3.07PM
+I managed to get my charts to rerender when new items were added. But the hover is buggy.
+![chart](images/chart.png)
+
 ### Challenges
 
 - Getting familiar with Vue in one week
@@ -79,7 +87,7 @@ I actually had a lot of problems with this. There were many wrapper libraries no
 ### Furthers/Todos
 
 - Add filter selection functionality
-- Add graph responsiveness ):
+- Fix graph hover bug
 - Find better way to sort expenses by dates
 - Add budget/income section
 - Connect to Firebase?
