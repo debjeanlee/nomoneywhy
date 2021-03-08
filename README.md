@@ -7,6 +7,7 @@ Single page Expense Tracker that tells you why you suddenly have no more money.
 - Vue.js 3
 - SCSS
 - Font Awesome Icons
+- Charts.js
 
 ### Planning & Development Process
 
