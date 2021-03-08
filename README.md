@@ -1,6 +1,8 @@
 # No Money, Why? - Expense Tracker
 
 Single page Expense Tracker that tells you why you suddenly have no more money.
+[Try it out here](https://nomoneywhy.debjeanlee.com/)
+_if you do find more bugs please let me know (:_
 
 # Contents
 
