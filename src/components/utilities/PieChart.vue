@@ -18,7 +18,7 @@ import getExpenses from '../../functions/getExpenses'
             const year = parseInt('20' + props.year)
             const data = getMonthExpenses(props.month, year);
             let categoryData = []
-
+            
             // gets list of categories in month
             data.forEach(el => {
                 if (!categoryData.includes(el.category)) {
@@ -40,8 +40,6 @@ import getExpenses from '../../functions/getExpenses'
                     data: {
                         labels: categoryData,
                         datasets: [{
-                            // change to get data from props
-                            // label: '# of Votes',
                             data: dataVals,
                             backgroundColor: [
                                 '#FB7477',
